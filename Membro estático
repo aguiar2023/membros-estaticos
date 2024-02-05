@@ -1,0 +1,36 @@
+using System;
+
+class MinhaClasse {
+    // Membro estático
+    public static int contador = 0;
+
+    // Membro não estático
+    public int id;
+
+    public MinhaClasse() {
+        // Atribuir um ID baseado no contador estático
+        id = contador++;
+    }
+
+    // Método estático
+    public static void ImprimirContador() {
+        Console.WriteLine($"Contador estático: {contador}");
+    }
+}
+
+class Program {
+    static void Main() {
+        // Criando instâncias da classe
+        MinhaClasse obj1 = new MinhaClasse();
+        MinhaClasse obj2 = new MinhaClasse();
+        MinhaClasse obj3 = new MinhaClasse();
+
+        // Chamando método estático
+        MinhaClasse.ImprimirContador();
+
+        // Acessando membros não estáticos
+        Console.WriteLine($"ID do obj1: {obj1.id}");
+        Console.WriteLine($"ID do obj2: {obj2.id}");
+        Console.WriteLine($"ID do obj3: {obj3.id}");
+    }
+}
