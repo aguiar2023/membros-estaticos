@@ -1,0 +1,62 @@
+using System;
+
+class Jokenpo {
+    static void Main() {
+        Console.WriteLine("Bem-vindo ao Jokenpo!");
+
+        while (true) {
+            Console.WriteLine("\nEscolha sua jogada: \n1 - Pedra\n2 - Papel\n3 - Tesoura\n0 - Sair");
+            int escolhaJogador = int.Parse(Console.ReadLine());
+
+            if (escolhaJogador == 0) {
+                Console.WriteLine("Saindo do jogo. Até a próxima!");
+                break;
+            }
+
+            if (escolhaJogador < 1 || escolhaJogador > 3) {
+                Console.WriteLine("Escolha inválida. Por favor, escolha entre 1, 2 ou 3.");
+                continue;
+            }
+
+            // Gera a escolha aleatória do computador
+            Random random = new Random();
+            int escolhaComputador = random.Next(1, 4);
+
+            // Exibe as escolhas
+            ExibirEscolhas(escolhaJogador, escolhaComputador);
+
+            // Verifica o vencedor
+            VerificarVencedor(escolhaJogador, escolhaComputador);
+        }
+    }
+
+    static void ExibirEscolhas(int escolhaJogador, int escolhaComputador) {
+        Console.WriteLine($"\nVocê escolheu: {ConverterEscolhaParaTexto(escolhaJogador)}");
+        Console.WriteLine($"Computador escolheu: {ConverterEscolhaParaTexto(escolhaComputador)}");
+    }
+
+    static string ConverterEscolhaParaTexto(int escolha) {
+        switch (escolha) {
+            case 1:
+                return "Pedra";
+            case 2:
+                return "Papel";
+            case 3:
+                return "Tesoura";
+            default:
+                return "Escolha inválida";
+        }
+    }
+
+    static void VerificarVencedor(int escolhaJogador, int escolhaComputador) {
+        if (escolhaJogador == escolhaComputador) {
+            Console.WriteLine("Empate!");
+        } else if ((escolhaJogador == 1 && escolhaComputador == 3) ||
+                   (escolhaJogador == 2 && escolhaComputador == 1) ||
+                   (escolhaJogador == 3 && escolhaComputador == 2)) {
+            Console.WriteLine("Você venceu!");
+        } else {
+            Console.WriteLine("Você perdeu. Boa sorte na próxima vez!");
+        }
+    }
+}
