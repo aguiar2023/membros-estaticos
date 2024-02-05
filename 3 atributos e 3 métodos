@@ -1,0 +1,47 @@
+using System;
+
+class Pessoa {
+    // Atributos
+    public string Nome { get; set; }
+    public int Idade { get; set; }
+    public double Altura { get; set; }
+
+    // Construtor
+    public Pessoa(string nome, int idade, double altura) {
+        Nome = nome;
+        Idade = idade;
+        Altura = altura;
+    }
+
+    // Método para apresentar a pessoa
+    public void Apresentar() {
+        Console.WriteLine($"Olá, meu nome é {Nome}, tenho {Idade} anos e medo {Altura} metros de altura.");
+    }
+
+    // Método para envelhecer a pessoa
+    public void Envelhecer() {
+        Idade++;
+        Console.WriteLine($"{Nome} envelheceu! Idade agora: {Idade} anos.");
+    }
+
+    // Método para crescer em altura
+    public void Crescer(double aumentoAltura) {
+        Altura += aumentoAltura;
+        Console.WriteLine($"{Nome} cresceu! Nova altura: {Altura} metros.");
+    }
+}
+
+class Program {
+    static void Main() {
+        // Criando uma instância da classe Pessoa
+        Pessoa pessoa = new Pessoa("Maria", 25, 1.65);
+
+        // Chamando métodos da classe Pessoa
+        pessoa.Apresentar();
+        pessoa.Envelhecer();
+        pessoa.Crescer(0.05);
+
+        // Apresentando novamente após as mudanças
+        pessoa.Apresentar();
+    }
+}
