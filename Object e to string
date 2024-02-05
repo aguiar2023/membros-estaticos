@@ -1,0 +1,30 @@
+using System;
+
+class Pessoa {
+    public string Nome { get; set; }
+    public int Idade { get; set; }
+
+    // Construtor
+    public Pessoa(string nome, int idade) {
+        Nome = nome;
+        Idade = idade;
+    }
+
+    // Método ToString sobrescrito
+    public override string ToString() {
+        return $"Nome: {Nome}, Idade: {Idade}";
+    }
+}
+
+class Program {
+    static void Main() {
+        // Criando uma instância da classe Pessoa
+        Pessoa pessoa = new Pessoa("João", 30);
+
+        // Utilizando o método ToString implicitamente
+        Console.WriteLine(pessoa);
+
+        // Utilizando o método ToString explicitamente
+        Console.WriteLine(pessoa.ToString());
+    }
+}
